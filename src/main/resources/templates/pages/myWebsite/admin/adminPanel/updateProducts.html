@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://wwww.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{adminWebsiteLayout}">
+<div layout:fragment="content">
+    <form>
+        <div class="col-8 ml-auto mr-auto">
+            <div class="row mb-3">
+                <label for="productId" class="col-sm-2 col-form-label">Product Id:</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" id="productId">
+                </div>
+            </div>
+            <div class="row mb-3">
+                <label for="addProduct" class="col-sm-2 col-form-label">Product Name:</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" id="addProduct">
+                </div>
+            </div>
+            <div class="row mb-3">
+                <label for="productCategory" class="col-sm-2 col-form-label">Product Category</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" id="productCategory">
+                </div>
+            </div>
+            <div class="row mb-3">
+                <label for="productDescription" class="col-sm-2 col-form-label">Product Description</label>
+                <div class="col-sm-6">
+                    <textarea class="form-control" id="productDescription" name="content" rows="5" cols="20"
+                              placeholder="Enter the product description"></textarea>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <label for="productImage" class="col-sm-2 col-form-label">Product Image</label>
+                <div class="col-sm-6">
+                    <input name="image" id="productImage" type="file" accept="image/png, image/jpeg, image/jpg">
+                </div>
+            </div>
+            <div class="row mb-3">
+                <label for="productPrice" class="col-sm-2 col-form-label">Product Price</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" id="productPrice">
+                </div>
+            </div>
+            <div class="row mb-3">
+                <label for="productQuantity" class="col-sm-2 col-form-label">Product Quantity</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" id="productQuantity">
+                </div>
+            </div>
+            <div>
+                <div class="col-8 text-center">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+            </div>
+        </div>
+
+    </form>
+</div>
+</html>

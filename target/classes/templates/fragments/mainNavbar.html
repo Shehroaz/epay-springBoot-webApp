@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://wwww.ultraq.net.nz/thymeleaf/layout">
+<nav th:fragment="mainNavbar" class="navbar navbar-expand-lg navbar-dark bg-dark mb-5">
+    <img src="/images/logo.png" alt="EpayDigital" style="width: 10rem">
+    <button class="btn  d-lg-none btn-outline-light" th:onclick="|window.location.href='login/logout'|" name="logoutBtn">Logout</button>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav">
+            <li class="nav-item active">
+                <a class="nav-link" th:href="@{/}">Home <span class="sr-only"></span></a>
+            </li>
+
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="activityDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Activity
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="activityDropdown">
+                   <li><a class="dropdown-item" href="#">Transaction</a></li>
+                   <li><a class="dropdown-item" href="#">Payment Request</a></li>
+                    <li><a class="dropdown-item" href="#">Currencies</a></li>
+                   <li> <a class="dropdown-item" href="#">Funding Source</a></li>
+                   <li><a class="dropdown-item" href="#">Store Manager</a> </li>
+                    <li><a class="dropdown-item" href="#">Contacts</a> </li>
+                </ul>
+            </li>
+
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="payDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Pay
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="payDropdown">
+                    <li><a class="dropdown-item" th:href="@{/pay}">Make a Payment</a> </li>
+                    <li><a class="dropdown-item" href="#">Payment Request Received</a> </li>
+                </ul>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="receiveDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
+                    Receive
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="receiveDropdown">
+                    <li><a class="dropdown-item" href="#">Payment Request</a></li>
+                    <li><a class="dropdown-item" href="#">Payment Services</a></li>
+                    <li><a class="dropdown-item" href="#">Mass Payment Service</a></li>
+                    <li><a class="dropdown-item" th:href="@{/sendAndRequest}">Send & Request</a></li>
+                </ul>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="reportDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Report
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="reportDropdown">
+                    <li><a class="dropdown-item" href="#">Clearance</a></li>
+                   <li><a class="dropdown-item" href="#">Daily Usages</a> </li>
+                    <li><a class="dropdown-item" href="#">Refund</a></li>
+                </ul>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="helpDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Help
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="helpDropdown">
+                    <li><a class="dropdown-item" href="#">Pricing & Fee</a> </li>
+                   <li><a class="dropdown-item" href="#">How To</a></li>
+                    <li><a class="dropdown-item" href="#">Support</a></li>
+                </ul>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="settingsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Settings
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="settingsDropdown">
+                    <li><a class="dropdown-item" th:href="@{/adminPanel}">Website</a> </li>
+                    <li><a class="dropdown-item" th:href="@{/addBankAccount}">Add Bank Account</a> </li>
+                    <li><a class="dropdown-item" th:href="@{/setting/bankAccounts}">View Bank Accounts</a></li>
+                    <li><a class="dropdown-item" th:href="@{/card}">Add new Card</a></li>
+                    <li><a class="dropdown-item" th:href="@{/setting/cards}">My Cards</a></li>
+                    <li><a class="dropdown-item" href="#">Verification Procedure</a></li>
+                    <li><a class="dropdown-item" th:href="@{/setting/security}">Security Settings</a> </li>
+                    <li><a class="dropdown-item" th:href="@{/setting}">View Billing Address</a></li>
+                    <li><a class="dropdown-item" th:href="@{/setting}">Profile Setting</a></li>
+                    <li><a class="dropdown-item" th:href="@{/qrCode}">QR Code</a></li>
+                    <li><a class="dropdown-item" href="#">Integration</a> </li>
+                   <li><a class="dropdown-item" href="#">My Business Account</a></li>
+                </ul>
+
+            </li>
+        </ul>
+        <div class="ml-auto">
+            <button th:onclick="|window.location.href='login/logout'|" type="button"  name="logoutBtn" class="btn btn-outline-light  d-none d-lg-inline">Logout</button>
+        </div>
+    </div>
+</nav>
+</html>

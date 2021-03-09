@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://wwww.ultraq.net.nz/thymeleaf/adminWebsiteLayout">
+<head>
+    <title layout:title-pattern = "$CONTENT_TITLE - $LAYOUT_TITLE"> EpayDigital </title>
+    <div th:replace="fragments/header"></div>
+</head>
+<body>
+<div th:replace="fragments/adminWebsiteNavbar"></div>
+<div layout:fragment="content"></div>
+<div th:replace="fragments/scripts"></div>
+</body>
+</html>
+
+

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://wwww.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate = "~{layout}">
+<head>
+    <title>Login Page</title>
+</head>
+<style>
+        body, html {
+  overflow-y:hidden;
+  overflow-x:hidden;
+
+  height: 100%;
+}
+.bg {
+  /* The image used */
+  background-image: url("/images/signupChoice.jpg");
+
+  /* Full height */
+  height: 100%;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+    </style>
+
+<div layout:fragment = "content">
+
+    <div class="row">
+      <div class="col-6">
+        <img src="/images/login-bg.jpg" alt="BackgroundImg" height="auto" class="img-fluid" max-width="100%">
+      </div>
+      <div class="col-6">
+        <div class="text-center mt-5">
+          <img src="/images/logo.png" alt="EpayDigital">
+          <h2 class="mt-4">Welcome back</h2>
+          <span class="text-black-50">New to epaydigital ? <a href="signup.html"> Sign up</a></span>
+          <div class="col-10 mx-auto">
+            <form action="#" th:action="@{login}" method="post" th:object="${login}" class="mt-5">
+              <div class="form-floating mb-3">
+                <input th:field="*{email}" type="email" class="form-control" id="email" style="height: 3rem;" placeholder="emails">
+                  <label for="email">Email</label>
+              </div>
+                <div class="form-floating mb-3">
+                    <input th:field="*{password}" type="text" class="form-control" id="password" style="height: 3rem;" placeholder="password">
+                    <label for="password">Password</label>
+                </div>
+                <div class="d-grid">
+                    <button type="submit" class="btn btn-primary btn-block" style="height: 3rem;">Login</button>
+                </div>
+            </form>
+          </div>
+            <div th:if="${loginError}">
+                <p class="text-danger font-weight-light" th:text="${loginError}"></p>
+            </div>
+        <div class="mt-5"><a href="#"><u>Forget Password?</u></a></div>
+
+
+        </div>
+
+      </div>
+    </div>
+      
+     
+    <script src="../../../static/js/script.js"></script>
+</div>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://wwww.ultraq.net.nz/thymeleaf/layout">
+<nav th:fragment="navbar" class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+        <!-- <a class="navbar-brand" href="#">EpayDigital</a> -->
+        <img src="/images/logo.png" alt="EpayDigital" width="150rem">
+        <button  th:onclick="|window.location.href='login'|"  class="btn d-lg-none btn-outline-primary btn-sm" name="loginBtn">Login</button>
+        <button th:onclick="|window.location.href='signup'|"  class="btn  d-lg-none btn-outline-light btn-sm" name="signupBtn">Signup</button>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+                aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link ml-5" th:href="@{/}">Home <span class="sr-only"></span></a>
+                </li>
+            </ul>
+            <div class="ml-auto">
+                <button  type="button" name="loginBtn"
+                         th:onclick="|window.location.href='login'|" class="btn btn-outline-primary mr-4 d-none d-lg-inline btn-sm">Login</button>
+                <button th:onclick="|window.location.href='signup'|" type="button" name="signupBtn"
+                        class="btn btn-outline-primary  d-none d-lg-inline btn-sm">SignUp</button>
+            </div>
+
+        </div>
+    </div>
+</nav>
+</html>

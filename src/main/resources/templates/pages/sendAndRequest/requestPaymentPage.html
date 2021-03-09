@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://wwww.ultraq.net.nz/thymeleaf/layout">
+<head>
+    <meta charset="UTF-8">
+    <title>Payment Page</title>
+    <div th:replace="fragments/header"></div>
+
+</head>
+<body>
+<br>
+<br>
+<div  class="mx-auto">
+    <div class="card shadow-lg mx-auto" style="width: 30rem; border-radius: 1.5rem;">
+        <div class="card-body">
+            <div class="mx-auto text-center">
+                <img  src="/images/logo.png" alt="EpayDigital">
+            </div>
+            <h5 class="text-center text-primary"> Pay Amount </h5>
+            <form action="">
+                <div class="form-group">
+                    <label for="cardHolderName"  class="col-form-label">Name on card</label>
+                </div>
+                <div class="form-group">
+                    <input  type="text" id="cardHolderName" class="form-control"  style="height: 2rem;"  placeholder="Name" required>
+                </div>
+                <div class="form-group">
+                    <label for="cardNumber"  class="col-form-label">Card number</label>
+                </div>
+                <div class="form-group">
+                    <input  type="text" id="cardNumber" class="form-control mb-2"  style="height: 2rem;"  placeholder="card number" required>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <label for="cvc" class="form-label">CVC</label>
+                        <input type="text"  class="form-control" id="cvc" required>
+                    </div>
+                    <div class="col-md-4">
+                        <label for="expDate" class="form-label">Exp</label>
+                        <input type="text"  class="form-control" id="expDate" required>
+                    </div>
+                    <div class="text-center mt-2">
+                        <button   type="submit" class="btn btn-outline-primary" style="width: 18rem; border-radius: 15rem;">Pay</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+
+<div th:replace="fragments/scripts"></div>
+</body>
+</html>

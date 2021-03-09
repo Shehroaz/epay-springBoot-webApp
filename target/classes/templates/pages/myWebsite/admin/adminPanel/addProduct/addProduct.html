@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://wwww.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{adminWebsiteLayout}">
+<div layout:fragment="content">
+    <form  th:action="@{/admin/product/addSuccess}" method="post" th:object="${addProductDomain}"  enctype="multipart/form-data">
+        <div class="col-8 ml-auto mr-auto">
+            <div class="row mb-3">
+                <label for="addProduct" class="col-sm-2 col-form-label">Product Name:</label>
+                <div class="col-sm-6">
+                    <input th:field="*{product_name}" required type="text" class="form-control" id="addProduct">
+                </div>
+            </div>
+            <div class="row mb-3">
+                <label  class="col-sm-2 col-form-label">Product Category</label>
+                <div class="col-sm-6">
+                    <select class="form-control" name="productCategory" id="productsCategories" th:field="*{productCategoryName}" required>
+                        <option
+                                th:each="category : ${productCategoriesListDomain.getProductCategoriesList()}"
+                                th:value="${category}"
+                                th:text="${category}"></option>
+                    </select>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <label for="productDescription" class="col-sm-2 col-form-label">Product Description</label>
+                <div class="col-sm-6">
+                    <textarea class="form-control" th:field="*{product_description}" id="productDescription" name="content" rows="5" cols="20"
+                              placeholder="Enter the product description" required></textarea>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <label for="productImage" class="col-sm-2 col-form-label">Product Image</label>
+                <div class="col-sm-6">
+                    <input  type="file" name="prodImage" id="productText"
+                           onchange="document.getElementById('productImage').src = window.URL.createObjectURL(this.files[0])" required>
+                    <img id="productImage" width="100" height="100" />
+                </div>
+            </div>
+            <div class="row mb-3">
+                <label for="productPrice" class="col-sm-2 col-form-label">Product Price</label>
+                <div class="col-sm-6">
+                    <input type="number" min="0"  th:field="*{product_price}" name="price" class="form-control" id="productPrice" required>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <label for="productQuantity"  class="col-sm-2 col-form-label">Product Quantity</label>
+                <div class="col-sm-6">
+                    <input type="number" th:field="*{quantity}" name="quantity" min="0"  class="form-control" id="productQuantity" required>
+                </div>
+            </div>
+            <div>
+                <div class="col-8 text-center">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+            </div>
+            <div class="alert alert-primary" role="alert" th:text="${successProductMsg}" th:if="${successProductMsg}"></div>
+        </div>
+
+    </form>
+</div>
+</html>

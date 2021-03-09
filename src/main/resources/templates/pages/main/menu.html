@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://wwww.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{mainLayout}">
+
+<div layout:fragment="content" class="bg">
+    <div class="row ml-5">
+        <div class="col-3 ml-auto">
+            <div class="card bg-primary" style="height: 8rem;">
+                <div class="card-body shadow">
+                    <a class=" text-decoration-none text-white" th:href="@{/card}">Add a credit or debit card <br> <span
+                            class=" fw-normal">Keep your financial information secure when shopping online.</span></a>
+                </div>
+            </div>
+        </div>
+        <div class="col-3">
+            <div class="card bg-primary" style="height: 8rem;">
+                <div class="card-body shadow">
+                    <a class="text-decoration-none text-white" href="#">Confirm your mobile number <br> <span class=" font-weight-light">Set up your mobile phone to send and receive money.</span></a>
+                </div>
+            </div>
+        </div>
+        <div class="col-3 mr-auto">
+            <div class="card bg-primary" style="height: 8rem;">
+                <div class="card-body shadow">
+                    <a class="text-decoration-none text-white" th:href="@{/addBankAccount}">Add a Bank account <br> <span
+                            class=" font-weight-light">There are fee when you send money to friend and family to UK using your Bank account.</span></a>
+                </div>
+            </div>
+        </div>
+
+    <div class="col-4 mt-3 ml-auto">
+        <div class="card" >
+            <div class="card-body shadow">
+                <h5 class="card-title text-primary">PayPal Balance</h5>
+                <p class="fs-2 text-dark ">$0.00</p>
+                <p class="fs-6 text-muted mb-none mt-none">Available</p>
+                <button class="btn btn-outline-primary rounded-pill">Transfer Money</button>
+            </div>
+        </div>
+        <div class="col-12 mt-3">
+            <div class="card" style="height: 8rem;">
+                <div class="card-body shadow">
+                    <h5 class="card-title text-primary"> Recent Activity <span class="ml-auto"> <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-arrow-right-short" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+  <path fill-rule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z"/>
+</svg></span></h5>
+                    <p class="text-dark">See when money comes in and when it goes out. You'll find your recent PayPal activity here</p>
+                </div>
+            </div>
+        </div>
+    </div>
+        <div class="col-4 mt-3 mr-auto">
+            <div class="card">
+                <div class="card-body shadow">
+                    <div class="row">
+                        <div class="col-3">
+                            <img src="/images/menuImages/send.png" alt="send" style="width: 3rem">
+                            <p>send</p>
+                        </div>
+                        <div class="col-3">
+                            <img src="/images/menuImages/request.png" alt="request" style="width: 3rem">
+                            <p>Request</p>
+                        </div>
+                        <div class="col-3">
+                            <img src="/images/menuImages/more2.PNG" alt="more" style="width: 3rem">
+                            <p>More</p>
+                        </div>
+                    </div>
+                    <p class="fs-6">Get more out of PayPal</p>
+                    <div class="row mt-3">
+                        <div class="col-3">
+                            <img src="/images/menuImages/bank.png" alt="Add bank account" style="width: 3rem">
+                        </div>
+                        <div class="col-9">
+                            <a class="text-primary text-decoration-none" th:href="@{/addBankAccount}" >Add your bank account</a>
+                            <p>There are no fee when you send money domestically to friends and family.</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-3">
+                            <img src="/images/logo.png" alt="EpayDigital" style="width: 3rem">
+                        </div>
+                        <div class="col-9">
+                            <h6 class="text-primary">Create your EpayDigital.Me link</h6>
+                            <p>Your customer link makes it easier to get paid.</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-3">
+                            <img src="/images/menuImages/addPhoto.png" alt="Add photo" style="width: 3rem">
+                        </div>
+                        <div class="col-9">
+                            <h6 class="text-primary">Add your photo</h6>
+                            <p>Reassure friends that they are sending the money to the right person.</p>
+                        </div>
+                    </div>
+                    <div class="mt-3">
+                        <h6 class="text-primary" >Bank account and cards</h6>
+                        <p>Shop and send money to friends more securely, Add your bank account, credit or debit card now.</p>
+                        <button class="btn btn-outline-primary rounded-pill" type="button" th:onclick="|window.location.href='card'|">Add Card or Bank Account</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+</div>
+</div>
+</html>

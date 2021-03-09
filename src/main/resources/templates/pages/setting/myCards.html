@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://wwww.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate = "~{mainLayout}">
+<head>
+    <title>My Cards</title>
+</head>
+
+<div layout:fragment = "content">
+<div class="col-12 col-md-8 mx-auto">
+    <div class="row">
+        <div class="card">
+            <div class="card-body text center">
+                <h4 class="text-primary text-center">e-wallet</h4>
+                <h5 class="text-center"><span class="text-primary" th:text="${showCards.getName()}"></span> you have <span th:text="${showCards.getCount()}"></span> cards</h5>
+                <h5 class="text-center">Your cards number are below. This is just a structure so chill</h5>
+                <h6 class="text-center" th:each="cardNumber: ${showCards.getCardNumber()}">
+                    <span class="text-center" th:text="${cardNumber}"> </span>
+                </h6>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+</div>
+</html>

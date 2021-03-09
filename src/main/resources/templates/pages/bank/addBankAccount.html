@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://wwww.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate = "~{mainLayout}">
+
+    <div layout:fragment = "content" class="bg">
+        <div  class="mx-auto">
+            <div class="card mx-auto" style="width: 30rem; border-radius: 1.5rem;">
+                <div class="card-body">
+                    <div class="mx-auto text-center">
+                        <img src="/images/logo.png" alt="EpayDigital">
+                    </div>
+                    <h4 class="text-center font-weight-light">Add Bank Detail</h4>
+                    <form  th:action="@{addBankAccount}" method="post" th:object="${bankAccountDomain}" class="mt-5">
+                        <div class="form-group mt-3">
+                            <input th:field="*{account}" type="text" class="form-control"  style="height: 2rem;"  placeholder="Account Number" required>
+                        </div>
+                        <div class="form-group mt-3">
+                            <input th:field="*{account_holder_name}" type="text" class="form-control"  style="height: 2rem;"  placeholder="Account Holder Name" required>
+                        </div>
+                        <div class="form-group mt-3">
+                            <label for="currency">Account Type</label>
+                            <div class="form-check form-check-inline">
+                                <input th:field="*{account_holder_type}"  class="form-check-input" type="radio" name="accountType" id="accountTypeId1" value="current" checked = checked required>
+                                <label class="form-check-label" for="accountTypeId1">Current</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input  th:field="*{account_holder_type}" class="form-check-input" type="radio" name="accountType" id="accountTypeId2" value="saving" required>
+                                <label class="form-check-label" for="accountTypeId2">Saving</label>
+                            </div>
+                        </div>
+                        <div class="form-group mt-3">
+                            <input th:field="*{bank_name}" type="text" class="form-control"  style="height: 2rem;"  placeholder="Bank Name" required>
+                        </div>
+                        <div class="form-group mt-3">
+                            <input th:field="*{country}" type="text" class="form-control"  style="height: 2rem;"  placeholder="Country" required>
+                        </div>
+                        <div class="form-group mt-3">
+                            <label for="currency">Currency</label>
+                            <select id="currency" class="form-control" th:field = "*{currency}" required>
+                                <option value="Pakistani Rupee" selected>Pakistani Rupee</option>
+                                <option value = "Dinar">Dinar</option>
+                                <option value="Pound">Pound</option>
+                                <option value="Dollar">Dollar</option>
+                                <option value="Indian Rupee">Indian Rupee</option>
+                                <option value="Riyal">Riyal</option>
+                            </select>
+                        </div>
+                        <div class="text-center mt-3">
+                            <button   type="submit" class="btn btn-outline-primary" style="width: 18rem; border-radius: 15rem;">Add Bank</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</html>

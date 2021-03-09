@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://wwww.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate = "~{mainLayout}">
+<head>
+    <title>My Banks</title>
+</head>
+
+<div layout:fragment = "content">
+    <div class="col-12 col-md-8 mx-auto">
+        <div class="row">
+            <div class="card">
+                <div class="card-body text center">
+                    <h1 class="text-center text-danger">Bank Accounts</h1>
+                    <h5 class="text-center"><span class="text-primary" th:text="${showBanks.getUsername()}"></span> you have <span th:text="${showBanks.getCount()}"></span> bank account</h5>
+                    <h5 class="text-center">Your bank accounts are below. This is just a structure so chill</h5>
+                    <h6 class="text-center" th:each="bankDetail: ${showBanks.getBankDetails()}">
+                        <span class="text-center" th:text="${bankDetail}"> </span>
+                    </h6>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+
+</div>
+</html>

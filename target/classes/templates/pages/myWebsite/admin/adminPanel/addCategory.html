@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://wwww.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{adminWebsiteLayout}">
+<div layout:fragment = "content">
+    <div class="col-12 col-md-10 mx-auto">
+        <div class="row">
+            <div class="card">
+                <div class="card-body text center">
+                    <h4 class="text-primary text-center">Add Categories</h4>
+                    <h5 class="text-center">Here you can add categories for products.</h5>
+                    <form th:action="@{/admin/productCategory/success}" method="post"
+                          th:object="${addCategory}"  autocomplete="off">
+                        <div class="form-group row mt-5">
+                            <label for="addCategoryName" class="col-sm-2 col-form-label col-form-label-lg">Product Categories</label>
+                            <div class="col-md-10">
+                                <input type="text" th:field="*{product_category}" class="form-control form-control-lg"
+                                       id="addCategoryName" placeholder="Enter your categories" list="productCategories" required>
+                                <datalist id="productCategories">
+                                    <option
+                                    th:each="category : ${categoriesList}"
+                                    th:value="${category}"
+                                    th:text="${category}"></option>
+                                </datalist>
+
+                            </div>
+                        </div>
+                        <div class="text-center">
+                            <button  type="submit" class="btn btn-primary mt-3">Submit</button>
+                        </div>
+                        <div class="alert alert-primary" role="alert" th:text="${successCategoryMsg}" th:if="${successCategoryMsg}"></div>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://wwww.ultraq.net.nz/thymeleaf/layout"
+        layout:decorate="~{adminWebsiteLayout}">
+<div layout:fragment = "content">
+    <div class="col-12 col-md-8 mx-auto">
+        <div class="row">
+            <div class="card">
+                <div class="card-body text center">
+                    <h1 class="text-center text-danger">All Product you added</h1>
+                    <h5 class="text-center">Your Products are below. This is just a structure so chill</h5>
+                    <h6 class="text-center" th:each="product: ${allProductsList}">
+                        <span class="text-center" th:text="${product}"> </span>
+                    </h6>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+
+</div>
+</html>

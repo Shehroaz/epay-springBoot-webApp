@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://wwww.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate = "~{mainLayout}">
+<head>
+    <title>Create Invoice</title>
+</head>
+
+<div layout:fragment = "content">
+    <div class="mx-auto">
+        <div class="col-10 ml-auto mr-auto">
+            <div class="card mx-auto">
+                <div class="card-body">
+                    <h3 class="text-center text-success">Create Invoice</h3>
+                    <form th:action="@{invoiceCreated}" method="post" th:object="${invoiceDomain}" >
+                        <div class="row">
+                            <div class="col-md-2">
+                                <label for="invoiceNumber"  class="col-form-label">Invoice number</label>
+                            </div>
+                            <div class="col-md-10">
+                                <input type="text"  th:value="${invoiceDomain.getInvoice_number}" th:field="*{invoice_number}" id="invoiceNumber" name="invoiceNum" class="form-control" required >
+                            </div>
+                            <div class="col-md-2 mt-2">
+                                <label for="invoiceDate" class="col-form-label">Invoice date</label>
+                            </div>
+                            <div class="col-md-10 mt-3">
+                                <input type="text" th:value="${invoiceDomain.getInvoice_date}" th:field="*{invoice_date}"  id="invoiceDate" class="form-control" required >
+                            </div>
+                            <div class="col-md-2 mt-2">
+                                <label for="invoiceDueDate" class="col-form-label">Invoice due date</label>
+                            </div>
+                            <div class="col-md-10 mt-3">
+                                <input type="date" th:field="*{due_date}" id="invoiceDueDate" name="dueDate" class="form-control" required >
+                            </div>
+                            <h4 class="text-center text-primary mt-3">Your business information</h4>
+                            <div class="col-md-2 mt-2">
+                                <label for="emailAddress" class="col-form-label">Bill to</label>
+                            </div>
+                            <div class="col-md-10 mt-2 mb-2">
+                                <input type="email" th:field="*{bill_to}" id="emailAddress" class="form-control" required>
+                            </div>
+                            <div class="col-md-4">
+                                <label for="description" class="form-label">Description</label>
+                                <input type="text" th:field="*{description}" class="form-control" id="description" required>
+                            </div>
+                            <div class="col-md-2">
+                                <label for="quantity" class="form-label">Quantity</label>
+                                <input type="number" th:field="*{quantity}" class="form-control" id="quantity" required>
+                            </div>
+                            <div class="col-md-2">
+                                <label for="price" class="form-label">Price</label>
+                                <input type="number" th:field="*{item_price}" class="form-control" id="price" required>
+                            </div>
+                            <div class="col-md-2">
+                                <label for="tax" class="form-label">Tax</label>
+                                <select id="tax" class="form-control" th:field="*{tax_price}" required>
+                                    <option value="0" selected> No value</option>
+                                    <option value="2"> Tax 2%</option>
+                                    <option value="3"> Tax 3%</option>
+                                    <option value="4"> Tax 4%</option>
+                                    <option value="5"> Tax 5%</option>
+                                    <option value="6"> Tax 6%</option>
+                                    <option value="7"> Tax 7%</option>
+                                    <option value="8"> Tax 8%</option>
+                                    <option value="9"> Tax 9%</option>
+                                    <option value="10"> Tax 10%</option>
+                                </select>
+                            </div>
+                            <div class="col-md-2">
+                                <label for="amount" class="form-label">Amount</label>
+                                <input type="number" class="form-control" id="amount" required>
+                            </div>
+                        </div>
+                        <div class="row mt-2">
+                            <div class="col-md-2">
+                                <label for="subTotal" class="form-label">SubTotal</label>
+                            </div>
+                            <div class="col-md-2">
+                                <input type="number" class="form-control" id="subTotal" required>
+                            </div>
+                        </div>
+                        <div class="row mt-2">
+                            <div class="col-md-2">
+                                <label for="discount" class="form-label">Discount</label>
+                            </div>
+                            <div class="col-md-2">
+                                <input type="number" class="form-control" id="discount" required>
+                            </div>
+                            <div class="col-md-2">
+                                <select id="%display" class="form-control">
+                                    <option value="%" selected >%</option>
+                                </select>
+                            </div>
+                            <div class="col-md-2">
+                                <input type="number" class="form-control" th:field="*{discount}" id="discountResult" required>
+                            </div>
+                        </div>
+                        <div class="row mt-2">
+                            <div class="col-md-2">
+                                <label for="totalResult" class="form-label">Total</label>
+                            </div>
+                            <div class="col-md-2">
+                                <input type="number" class="form-control" th:field="*{total_price}" id="totalResult" required>
+                            </div>
+                        </div>
+                        <div class="row mt-2">
+                            <div class="col-md-6">
+                                <label for="noteToRecipient" class="col-form-label">Note to recipient</label>
+                                <textarea class="form-control"  id="noteToRecipient" name="content" rows="5" cols="20"
+                                          placeholder="Note to recipient like 'thanks for your business' " th:field="*{note}" required></textarea>
+                            </div>
+                            <div class="col-md-6 mt-2">
+                                <label for="termsAndCondition" class="col-form-label">Terms and conditions</label>
+                                <textarea class="form-control" th:text="${invoiceDomain.getTermsAndConditions()}" id="termsAndCondition" name="content" rows="5" cols="20"
+                                          placeholder="Company terms & conditions" required></textarea>
+                            </div>
+                        </div>
+                        <div class="text-center mt-3">
+                            <button   type="submit" class="btn btn-outline-primary"   style="width: 18rem; border-radius: 15rem;">Send</button>
+                        </div>
+                    </form>
+                    <br>
+                    <form th:action="@{invoicePreview}" method="get">
+                        <div class="text-center">
+                            <button   type="submit" class="btn btn-outline-primary" onclick="valuesSender();" style="width: 18rem; border-radius: 15rem;">Preview</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        var amount = document.getElementById('amount');
+        var subTotal = document.getElementById('subTotal');
+        var discount = document.getElementById('discount');
+        var discountResult = document.getElementById('discountResult');
+        var totalResult = document.getElementById('totalResult');
+
+        amount.addEventListener("change" , function (){
+            subTotal.value = amount.value;
+        })
+
+        discount.addEventListener("change", function() {
+            discountResult.value = subTotal.value * discount.value / 100;
+        });
+        discount.addEventListener("change" , function (){
+            totalResult.value = subTotal.value - discountResult.value;
+        });
+
+        function valuesSender(){
+            var invoiceNumber = document.getElementById('invoiceNumber').value;
+            var invoiceDate = document.getElementById('invoiceDate').value;
+            var invoiceDueDate = document.getElementById('invoiceDueDate').value;
+            var billTo = document.getElementById('emailAddress').value;
+            var description = document.getElementById('description').value;
+            var quantity = document.getElementById('quantity').value;
+            var amount = document.getElementById('amount').value;
+            var subTotal = document.getElementById('subTotal').value;
+            var discountResult = document.getElementById('discountResult').value;
+            var totalPrice = document.getElementById('totalResult').value;
+            localStorage.setItem("previewInvoiceNumber" , invoiceNumber);
+            localStorage.setItem("previewInvoiceDate" , invoiceDate);
+            localStorage.setItem("previewInvoiceDueDate" , invoiceDueDate);
+            localStorage.setItem("previewInvoiceBillTo" , billTo);
+            localStorage.setItem("previewInvoiceDescription" , description);
+            localStorage.setItem("previewInvoiceQuantity" , quantity);
+            localStorage.setItem("previewInvoiceAmount" , amount);
+            localStorage.setItem("previewInvoiceSubTotal" , subTotal);
+            localStorage.setItem("previewInvoiceDiscountResult" , discountResult);
+            localStorage.setItem("previewInvoiceTotalPrice" , totalPrice);
+            return false;
+        }
+    </script>
+</div>
+</html>

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://wwww.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate = "~{mainLayout}">
+<head>
+    <title>Preview Invoice</title>
+</head>
+
+<div layout:fragment = "content">
+    <div class="mx-auto">
+        <div class="col-10 ml-auto mr-auto">
+            <div class="card mx-auto">
+                <div class="card-body">
+                    <h3 class="text-center text-success">Preview of invoice</h3>
+                    <div class="row">
+                        <div class="col-md-2">
+                            <p class="font-weight-bold">Invoice No</p>
+                        </div>
+                        <div class="col-md-10">
+                            <p><span id="invoiceNumber2"></span></p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-2">
+                            <p class="font-weight-bold">Invoice Date</p>
+                        </div>
+                        <div class="col-md-10">
+                            <p><span id="invoiceDate2"></span></p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-2">
+                            <p class="font-weight-bold">Invoice due date</p>
+                        </div>
+                        <div class="col-md-10">
+                            <p><span id="invoiceDueDate2"></span></p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-2">
+                            <p class="font-weight-bold">Bill to</p>
+                        </div>
+                        <div class="col-md-10">
+                            <p><span id="emailAddress2"></span></p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-2">
+                            <p class="font-weight-bold">Amount Due</p>
+                        </div>
+                        <div class="col-md-10">
+                            <p><span id="amountDue2"></span></p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-2">
+                            <p class="font-weight-bold">Description</p>
+                        </div>
+                        <div class="col-md-10">
+                            <p><span id="description2"></span></p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-2">
+                            <p class="font-weight-bold">Quantity</p>
+                        </div>
+                        <div class="col-md-10">
+                            <p><span id="quantity2"></span></p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-2">
+                            <p class="font-weight-bold">Amount</p>
+                        </div>
+                        <div class="col-md-10">
+                            <p><span id="amount2"></span></p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-2">
+                            <p class="font-weight-bold">Discount</p>
+                        </div>
+                        <div class="col-md-10">
+                            <p><span id="totalDiscount2"></span></p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-2">
+                            <p class="font-weight-bold">Total</p>
+                        </div>
+                        <div class="col-md-10">
+                            <p><span id="totalResult2"></span></p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        document.getElementById("invoiceNumber2").innerHTML=localStorage.getItem("previewInvoiceNumber");
+        document.getElementById("invoiceDate2").innerHTML=localStorage.getItem("previewInvoiceDate");
+        document.getElementById("invoiceDueDate2").innerHTML=localStorage.getItem("previewInvoiceDueDate");
+        document.getElementById("emailAddress2").innerHTML=localStorage.getItem("previewInvoiceBillTo");
+        document.getElementById("amountDue2").innerHTML=localStorage.getItem("previewInvoiceTotalPrice");
+        document.getElementById("description2").innerHTML=localStorage.getItem("previewInvoiceDescription");
+        document.getElementById("quantity2").innerHTML=localStorage.getItem("previewInvoiceQuantity");
+        document.getElementById("amount2").innerHTML=localStorage.getItem("previewInvoiceAmount");
+        document.getElementById("totalDiscount2").innerHTML=localStorage.getItem("previewInvoiceDiscountResult");
+        document.getElementById("totalResult2").innerHTML=localStorage.getItem("previewInvoiceTotalPrice");
+    </script>
+
+</div>
+</html>

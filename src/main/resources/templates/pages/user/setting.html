@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://wwww.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate = "~{mainLayout}">
+<head>
+    <title> Setting</title>
+</head>
+
+<div layout:fragment = "content">
+        <div class="row">
+                <div class="col-4 ml-auto">
+                    <div class="card">
+                        <div class="card-body shadow">
+                            <p>Profile</p>
+                            <div class="row">
+                                <div class="col-4">
+                                    <span th:if="${setting.image != null}"> <img th:src="${setting.image}" class="rounded-circle"  width="120rem" height="118rem"> </span>
+                                    <span th:unless="${setting.image != null}"> <img src="https://cdn.pixabay.com/photo/2016/08/31/11/54/user-1633249_960_720.png" class="rounded-circle"  width="120rem" height="118rem"> </span>
+
+                                        <form th:action="@{updateSettingImage}" method="post" enctype="multipart/form-data">
+                                            <input class="d-none" name="image" id="imageUploader" type="file" accept="image/png, image/jpeg, image/jpg">
+                                            <label for="imageUploader" class="btn btn-link ">Upload Image</label>
+                                            <button class="btn  btn-primary" type="submit"> Upload</button>
+                                        </form>
+                                </div>
+                                <div class="col-8 mt-2">
+                                    <p th:text="${setting.firstName} + ' ' + ${setting.lastName}"></p>
+                                    <div class="row">
+                                        <div class="col-8">
+                                            <p>Joined in 2020</p>
+                                        </div>
+                                        <div class="col-4">
+                                            <a href="#"><h6>Joined</h6></a>
+                                        </div>
+                                    </div>
+                                    <hr class="mt-0">
+                                    <h6 class="text-primary">Get EpayDigital_me</h6>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card my-3">
+                        <div class="card-body shadow">
+                            <h5 class="card-title mb-3">Account Option</h5>
+                            <div class="row">
+                                <div class="col-5">
+                                    <p class="font-weight-bold">Time Zone</p>
+                                </div>
+                                <div class="col-7">
+                                    <p></p>
+                                </div>
+                            </div>
+                            <hr class="my-2">
+                            <div class="row">
+                                <div class="col-5">
+                                    <p class="font-weight-bold">Nationality</p>
+                                </div>
+                                <div class="col-7">
+                                    <p th:text="${setting.country}"></p>
+                                </div>
+                            </div>
+                            <hr class="my-2">
+                            <div class="row">
+                                <div class="col-5">
+                                    <p class="font-weight-bold">Merchant Id</p>
+                                </div>
+                                <div class="col-7">
+                                    <p>1243567488990</p>
+                                </div>
+                            </div>
+                            <hr class="my-2">
+                            <a href="#">Convert your account into business account.</a>
+                            <hr class="my-2">
+                            <a href="#">Close your account</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4 mr-auto">
+
+                    <div class="card">
+                        <div class="card-body shadow">
+                            <h5 class="card-title">Address</h5>
+                            <p class="card-text" th:text="${setting.addressLine1}"></p>
+                            <p class="card-text" th:text="${setting.addressLine2}"></p>
+                        </div>
+                    </div>
+
+                    <div class="card my-3 shadow " >
+                        <div class="card-body">
+                            <h5 class="card-title mb-4">Email Address</h5>
+                            <p class="card-text" th:text="${setting.email}"></p>
+                        </div>
+                    </div>
+
+                    <div class="card my-3 shadow rounded" >
+                        <div class="card-body">
+                            <h5 class="card-title mb-4">Phone Number</h5>
+                            <p class="card-text" th:text="${setting.phoneNumber}"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </div>
+</html>
